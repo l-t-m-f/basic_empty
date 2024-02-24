@@ -69,6 +69,7 @@ elseif (CMAKE_Fortran_COMPILER_ID MATCHES "Intel")
 endif ()
 
 # Link required libraries for your project
+if(WIN32)
 target_link_libraries(${PROJECT_NAME}
         mingw32
         SDL2main
@@ -78,6 +79,16 @@ target_link_libraries(${PROJECT_NAME}
         SDL2_mixer
         SDL2_net
 )
+elseif()
+target_link_libraries(${PROJECT_NAME}
+        SDL2main
+        SDL2
+        SDL2_image
+        SDL2_ttf
+        SDL2_mixer
+        SDL2_net
+)
+endif()
 
 set_target_properties(${PROJECT_NAME}
         PROPERTIES
